@@ -1,0 +1,19 @@
+{% extends 'accounts/registration-page.html' %}
+{% block account %}
+
+<div class="login-container">
+    <h1><strong>S</strong>pice<strong>S</strong>wap</h1>
+    <h3>Sign up</h3>
+    <form action="{% url 'register' %}" method="post">
+        {{ form.as_p }}
+        <button class="register-button" type="submit">Register</button>
+        {% csrf_token %}
+        
+        
+        <a href="{% url 'login' %}">Already have an account?</a>
+        <a href="{% url 'index' %}">Back to Home Page</a>
+    </form>
+    
+</div>
+
+{% endblock %}

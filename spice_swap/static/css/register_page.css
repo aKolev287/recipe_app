@@ -1,0 +1,150 @@
+.login-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20%;
+    background-color: #f5f5f5;
+}
+.login-wrapper img{
+    width: 75vh;
+}
+
+/* Style for the login container */
+.login-container {
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.login-container h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+.login-container h3 {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.login-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center form content horizontally */
+}
+
+.login-container input[type="text"],
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    padding: 5px 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    width: 100%; /* Adjust width to fill container */
+}
+
+.login-container input[type="submit"] {
+    padding: 10px;
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login-container label {
+    text-align: left; /* Align labels to the left for better readability */
+    margin-bottom: 5px;
+}
+.login-container a {
+    text-decoration: none;
+    color: #ff0000;
+    margin-top: 10px;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+.login-container ul.errorlist {
+    color: #ff0000;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.login-container input[type="text"]:invalid,
+.login-container input[type="email"]:invalid,
+.login-container input[type="password"]:invalid {
+    background-color: #ffebee; /* Add a background color to invalid fields */
+}
+.login-container input[type="submit"] {
+    padding: 10px;
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.login-container p{
+    text-align: left;
+
+}
+.login-container input[type="submit"]:hover {
+    background-color: #ff8c3d;
+    transform: scale(1.05); /* Slight scale increase on hover */
+}
+/* Style password error messages */
+.password-requirements {
+    margin-top: 2px; /* Adjust margin as needed */
+    font-size: 14px; /* Adjust font size for error messages */
+}
+
+/* Remove bullets from password requirements list */
+.password-requirements ul {
+    list-style-type: none;
+    padding-left: 0; /* Remove default padding */
+}
+
+.login-container ul li {
+    margin-bottom: 5px; /* Adjust margin as needed */
+    
+    text-align: left;
+    width: 400px;
+}
+.helptext{
+    display: none;
+}
+
+
+.register-button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    font-size: 1.2em;
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    text-decoration: none;
+
+}
+.register-button:hover {
+    background-color: #ff8c3d;
+}
+#deleteButton:hover {
+    background-color: #ff0000;
+}
+.login-container label {
+    display: block; /* Display label above the input field */
+    text-align: left; /* Align labels to the left for better readability */
+    margin-bottom: 5px;
+    font-weight: bold; /* Add bold font-weight to the labels */
+}
+#id_password, #id_password1, #id_password2, #id_username{
+
+    width: 450px;
+}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="profile-edit">
+        <h1><strong>D</strong>elete <strong>P</strong>profile</h1>
+        <h3>Are you sure you want to premanetly delete your profile?</h3>
+        <form method="post" action="{% url 'delete-profile' user.pk %}">
+            {% csrf_token %}
+            <button class="register-button" id="deleteButton" type="submit">Delete</button>
+            <a class="register-button" href="{% url 'details-profile' %}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

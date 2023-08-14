@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if request.user.is_authenticated %}
+<div class="profile-page-style">
+    <div class="profile-header">
+        <img class="profile-image" src="https://i.pinimg.com/1200x/28/95/9c/28959c030ba3d23d564a0eee0206bb5c.jpg">
+        <div class="profile-info">
+            <h2 class="profile-title">{{ user }}</h2>
+            <p class="profile-bio">Bio</p>
+            {% if user != request.user %}
+            <a class="profile-link" href="#">Follow</a>
+            {% else %}
+            <!-- else if the user is the profile owner -->
+            <a class="profile-link" href="{% url 'edit-profile' %}">Edit profile</a>
+            <a class="profile-link" href="{% url 'logout' %}">Log out</a>
+            <a class="profile-link" href="{% url 'delete-profile' user.pk %}">Delete profile</a>
+            {% endif %}
+        </div>
+    </div>
+    <hr>
+    <h3 class="profile-action">List of recipes</h3>
+    <ul class="recipe-list">
+        <li class="recipe-item">Recipe <a href="#" class="profile-link">Edit</a><a href="recepe-delete.html" class="profile-link">Delete</a></li>
+        <li class="recipe-item">Recipe <a href="#" class="profile-link">Edit</a><a href="recepe-delete.html" class="profile-link">Delete</a></li>
+        <li class="recipe-item">Recipe <a href="#" class="profile-link">Edit</a><a href="recepe-delete.html" class="profile-link">Delete</a></li>
+    </ul>
+</div>
+{% endif %}
+{% endblock %}

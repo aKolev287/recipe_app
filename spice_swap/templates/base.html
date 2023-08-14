@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <title>SpiceSwap</title>
+</head>
+<body>
+    <header>
+        
+        <div class="nav-container">
+            <h1><strong>S</strong>pice<strong>S</strong>wap</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'index' %}">Breakfast</a></li>
+                    <li><a href="{% url 'index' %}">Lunch</a></li>
+                    <li><a href="{% url 'index' %}">Dinner</a></li>
+                    <li><a href="{% url 'index' %}">Snacks</a></li>
+                    <li><a href="{% url 'index' %}">Main Dish</a></li>
+                    <li><a href="{% url 'index' %}">Desserts</a></li>
+                    <!--If user has no account-->
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <!-- else if the user has an account -->
+                    <li><a href="{% url 'details-profile' %}">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <h3><strong>S</strong>pice<strong>S</strong>wap</h3>
+        <!--IF ON TIME CAN IMPLEMENT A REST EMAIL LATTER-->
+        <p>Subsribe for the news latter</p>
+        <form action="">
+            <input type="email" placeholder="Enter your email">
+            <button>Subscribe</button>
+        </form>
+
+    </footer>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>
