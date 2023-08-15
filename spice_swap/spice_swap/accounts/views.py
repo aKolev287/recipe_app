@@ -14,9 +14,6 @@ from django.contrib.auth import forms as auth_forms
 # The user Model
 UserModel = get_user_model()
 
-
-
-
 # Register a user
 class RegisterUserView(views.CreateView):
     template_name = 'accounts/profile-create.html'

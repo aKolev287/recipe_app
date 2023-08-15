@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('spice_swap.common.urls')),
     path('accounts/', include('spice_swap.accounts.urls')),
+    path('recipes/', include('spice_swap.recipes.urls')),
 ]

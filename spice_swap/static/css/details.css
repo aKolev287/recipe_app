@@ -2,7 +2,7 @@
 /* Page Styles */
 .recipe-details {
     max-width: 800px;
-    margin: 0 auto;
+    margin: 5vh auto;
     padding: 20px;
     background-color: #f7f7f7;
     border-radius: 10px;

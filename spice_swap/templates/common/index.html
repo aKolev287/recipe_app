@@ -1,30 +1,38 @@
 {% extends 'base.html' %}
+
 {% block content %}
 <h2 class="small-headers"><a href="">Highest rating →</a></h2>
 <section class="highest-rated-box">
     
-    <!-- Cards showing the dishes with the highest rating -->
+    <!-- Cards showing the dishes with the highest rating 
+    {% for recipe in highest_rated_recipes %}
     <div class="dish-card">
-        <img src="./images/burger.jpg" alt="">
-        <h3>Burger</h3>
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        <h3>{{ recipe.title }}</h3>
         <p>
-            Tags: American
+            {% for tag in recipe.tags.all %}
+                Tags: {{ tag.name }}
+            {% endfor %}
         </p>
-        <a href="recipe-details.html">Details</a>
+        <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
     </div>
-    
+    {% endfor %}-->
 </section>
 <h2 class="small-headers"><a href="">Newest →</a></h2>
 <section class="highest-rated-box">
     <!-- Cards showing the newest dishes -->
+    {% for recipe in newest_recipes %}
     <div class="dish-card">
-        <img src="./images/burger.jpg" alt="">
-        <h3>Burger</h3>
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        <h3>{{ recipe.title }}</h3>
         <p>
-            Tags: American
+            {% for tag in recipe.tags.all %}
+                Tags: {{ tag.name }}
+            {% endfor %}
         </p>
-        <a href="#">Details</a>
+        <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
     </div>
+    {% endfor %}
 </section>
 
 {% endblock %}

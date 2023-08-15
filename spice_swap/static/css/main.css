@@ -18,7 +18,9 @@ h1{
     font-family: 'Kablammo', cursive;
     color: #ff6600;
 }
-
+main{
+    margin-bottom: 3vh;
+}
 strong{
     font-family: 'Kablammo', cursive;
     font-size: 1.5em;

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="recipe-details">
+        <h1>{{ recipe.title }}</h1>
+        <p><a href="#" id="reviewsPage">Reviews: </a></p> <!-- LATER NOT READY -->
+        <p>{{ recipe.description }}</p>
+        <p>Recipe by <a href="{% url 'details-profile' recipe.user.username %}">{{ recipe.user.username }}</a> | Uploaded on: {{ recipe.date }}</p>
+        <div class="recipe-image">
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        </div>
+        <div class="details-card">
+            <!-- Additional details about the recipe -->
+        </div>
+        <div class="recipe-ingredients">
+            <h2>Ingredients</h2>
+            <p>{{ recipe.ingredients|linebreaksbr }}</p>
+
+            <h2>Instructions</h2>
+            <p>{{ recipe.instructions|linebreaksbr }}</p>
+        </div>
+    </div>
+    <!-- Extended model for the reviews LATER -->
+{% endblock %}
