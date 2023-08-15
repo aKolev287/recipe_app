@@ -30,7 +30,7 @@
 
 .profile-edit input[type="text"],
 .profile-edit input[type="password"],
-.profile-edit input[type="date"],
+.profile-edit input[type="email"],
 .profile-edit select {
     width: 100%;
     padding: 10px;
@@ -61,7 +61,7 @@
 /* Profile Page Styling */
 .profile-page-style {
     max-width: 850px;
-    margin: 5vh auto 33vh;
+    margin: 5vh auto 41vh;
     padding: 20px;
     background-color: white;
     border: 1px solid #ddd;

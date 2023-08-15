@@ -144,7 +144,10 @@
     margin-bottom: 5px;
     font-weight: bold; /* Add bold font-weight to the labels */
 }
-#id_password, #id_password1, #id_password2, #id_username{
+.login-container #id_password,
+.login-container #id_password1,
+.login-container #id_password2, 
+.login-container #id_username{
 
     width: 450px;
 }

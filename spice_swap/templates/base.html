@@ -24,10 +24,11 @@
                     <li><a href="{% url 'index' %}">Snacks</a></li>
                     <li><a href="{% url 'index' %}">Main Dish</a></li>
                     <li><a href="{% url 'index' %}">Desserts</a></li>
-                    <!--If user has no account-->
+                    {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'login' %}">Login</a></li>
-                    <!-- else if the user has an account -->
-                    <li><a href="{% url 'details-profile' %}">Profile</a></li>
+                    {% else %}
+                    <li><a href="{% url 'details-profile' username=user.username  %}">Profile</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
