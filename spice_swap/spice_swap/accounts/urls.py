@@ -1,13 +1,13 @@
 from django.urls import path
 
-from .views import RegisterUserView, EditProfileView , profile_delete, LoginUserView, profile_details, LogoutUserView, ProfileDeleteView, custom_login_redirect
+from . import views
 
 urlpatterns = [
-    path('register/', RegisterUserView.as_view(), name='register'),
-    path('logout/', LogoutUserView.as_view(), name='logout'),
-    path('edit_profile/', EditProfileView.as_view(), name='edit-profile'),
-    path('delete_profile/<int:pk>/', ProfileDeleteView.as_view(), name='delete-profile'),
-    path('login/', LoginUserView.as_view(), name='login'),
-    path('details_profile/<slug:username>/', profile_details, name='details-profile'),
-    path('custom-login-redirect/', custom_login_redirect, name='custom-login-redirect'),
+    path('register/', views.RegisterUserView.as_view(), name='register'),
+    path('logout/', views.LogoutUserView.as_view(), name='logout'),
+    path('edit_profile/', views.EditProfileView.as_view(), name='edit-profile'),
+    path('delete_profile/<int:pk>/', views.ProfileDeleteView.as_view(), name='delete-profile'),
+    path('login/', views.LoginUserView.as_view(), name='login'),
+    path('details_profile/<slug:username>/', views.profile_details, name='details-profile'),
+    path('custom-login-redirect/', views.custom_login_redirect, name='custom-login-redirect'),
 ]

@@ -132,3 +132,15 @@ hr {
     margin: 10px 0;
     
 }
+
+.recipe-link {
+    text-decoration: none;
+    color: #ff6600;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.recipe-link:hover {
+    text-decoration: underline;
+    color: #ff8431;
+}

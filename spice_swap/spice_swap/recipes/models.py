@@ -18,6 +18,10 @@ class Recipe(models.Model):
     image = models.ImageField(upload_to='./user_images/')
     tags = models.ManyToManyField(Tag, blank=True)
     date = models.DateTimeField(auto_now_add=True, null=True)
+
+    # Recipe likes
+    likes = models.PositiveIntegerField(default=0)
+
     # Associate recipe with user
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
@@ -33,3 +37,8 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.user.username} on {self.recipe.title}"
+    
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(auto_now_add=True)

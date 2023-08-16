@@ -10,6 +10,7 @@ from django.views import generic as views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import forms as auth_forms
 from django.views.decorators.csrf import csrf_protect
+from spice_swap.recipes.models import Recipe
 
 # K4a9a556QEA
 # The user Model
@@ -63,10 +64,11 @@ def profile_delete(request):
 @login_required
 def profile_details(request, username):
     user = get_object_or_404(UserModel, username=username)
+    recipes = Recipe.objects.filter(user=user)  # Get user's recipes
     context = {
-        'user': user
+        'user': user,
+        'recipes': recipes
     }
-               
     return render(request, 'accounts/profile-details.html', context)
 
 # Custom login redirects because global settings are stupid and the lambda function didn't work (or I didn't know how to fix it otherwise)

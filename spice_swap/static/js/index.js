@@ -4,7 +4,7 @@ function main(){
   
   document.addEventListener("scroll", () => {
     const currentScroll = document.documentElement.scrollTop;
-    if (currentScroll > 100) {
+    if (currentScroll > 120) {
       header.classList.add(toggleClass);
     } else {
       header.classList.remove(toggleClass);
@@ -36,3 +36,4 @@ function registerPassword(){
     confirm_passowrd[0].type = "password";
   }
 }
+
