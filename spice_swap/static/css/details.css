@@ -20,7 +20,7 @@
 }
 
 .recipe-details a {
-    color: #007bff;
+    color: #ff6600;
     text-decoration: none;
 }
 
@@ -86,40 +86,81 @@
     object-fit: cover;
     border-radius: 8px;
 }
-/* Reviews Section */
-.reviews {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
+
+
+/* comments */
+.comments-box {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: #ccc 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* User Reviews */
-.user-review {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #ddd;
+.comments-list {
+    list-style-type: none;
+    padding: 0;
 }
 
-.user-review h3 {
-    color: #333;
-    margin: 5px 0;
+.comments-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: #ccc 1px solid;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.user-review p {
-    color: #555;
+.comments-list li a {
+    font-weight: bold;
+    color: #ff6600;
+    text-decoration: none;
 }
 
-/* User Name */
-.user-name {
-    color: #007bff;
+.comments-list li a:hover {
+    text-decoration: underline;
 }
 
-/* User Review Date */
-.review-date {
-    color: #888;
+.comment-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: #ccc 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* User Review Content */
-.review-content {
-    margin-top: 10px;
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.comment-form img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.comment-form textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical; /* Allow vertical resizing only */
+}
+
+.comment-form button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
 }

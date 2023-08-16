@@ -6,9 +6,12 @@
     <h3>Sign up</h3>
     <form action="{% url 'register' %}" method="post">
         {{ form.as_p }}
+        <p class="see-password">
+            <input type="checkbox" onclick="registerPassword()">Show Password
+        </p>
         <button class="register-button" type="submit">Register</button>
         {% csrf_token %}
-        
+
         
         <a href="{% url 'login' %}">Already have an account?</a>
         <a href="{% url 'index' %}">Back to Home Page</a>

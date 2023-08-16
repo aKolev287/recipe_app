@@ -25,3 +25,11 @@ class Recipe(models.Model):
         return self.title
 
 
+class Comment(models.Model):
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    comment = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    def __str__(self):
+        return f"Comment by {self.user.username} on {self.recipe.title}"

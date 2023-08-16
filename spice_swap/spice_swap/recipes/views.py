@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .forms import RecipeForm
-from .models import Recipe
+from .forms import RecipeForm, CommentForm
+from .models import Recipe, Comment
 
 @login_required
 def create_recipe(request):
@@ -26,5 +26,21 @@ def recipe_list(request):
 
 def recipe_detail(request, recipe_id):
     recipe = Recipe.objects.get(pk=recipe_id)
-    context = {'recipe': recipe}
+    comments = Comment.objects.filter(recipe=recipe)
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.user = request.user
+            comment.recipe = recipe
+            comment.save()
+            return redirect('recipe-detail', recipe_id=recipe_id)
+        
+    context = {
+        'recipe': recipe,
+        'comments': comments,
+        'comment_form': comment_form
+        }
     return render(request, 'recipes/recipe_detail.html', context)
+

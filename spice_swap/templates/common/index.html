@@ -25,9 +25,9 @@
     <div class="dish-card">
         <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
         <h3>{{ recipe.title }}</h3>
-        <p>
+        <p>Tags:
             {% for tag in recipe.tags.all %}
-                Tags: {{ tag.name }}
+                 {{ tag.name }}
             {% endfor %}
         </p>
         <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>

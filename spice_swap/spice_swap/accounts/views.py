@@ -9,6 +9,7 @@ from django.views.generic.edit import UpdateView
 from django.views import generic as views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import forms as auth_forms
+from django.views.decorators.csrf import csrf_protect
 
 # K4a9a556QEA
 # The user Model

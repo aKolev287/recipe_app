@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% block content %}
-
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="register-button">Create Recipe</button>
-</form>
+<div class="recipe-create-box">
+    <h1>Create a recipe</h1>
+    <form method="post" enctype="multipart/form-data">
+    
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="register-button">Create Recipe</button>
+    </form>
+</div>
 
 {% endblock %}

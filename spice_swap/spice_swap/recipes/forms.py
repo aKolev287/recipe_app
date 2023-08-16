@@ -1,5 +1,5 @@
 from django import forms
-from .models import Recipe, Tag
+from .models import Recipe, Tag, Comment
 
 class RecipeForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
@@ -11,3 +11,8 @@ class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
         fields = ['title', 'description', 'ingredients', 'instructions', 'image', 'tags']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']

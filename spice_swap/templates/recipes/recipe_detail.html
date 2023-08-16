@@ -4,7 +4,7 @@
         <h1>{{ recipe.title }}</h1>
         <p><a href="#" id="reviewsPage">Reviews: </a></p> <!-- LATER NOT READY -->
         <p>{{ recipe.description }}</p>
-        <p>Recipe by <a href="{% url 'details-profile' recipe.user.username %}">{{ recipe.user.username }}</a> | Uploaded on: {{ recipe.date }}</p>
+        <p>Recipe by <a href="{% url 'details-profile' recipe.user.username %}">@{{ recipe.user.username }}</a> | Uploaded on: {{ recipe.date }}</p>
         <div class="recipe-image">
             <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
         </div>
@@ -18,6 +18,33 @@
             <h2>Instructions</h2>
             <p>{{ recipe.instructions|linebreaksbr }}</p>
         </div>
-    </div>
+
+        <hr>
+        {% if request.user.is_authenticated %}
+        <div class="comment-section">
+            <h3>Add a Comment</h3>
+            <form class="comment-form" method="post">
+                {% csrf_token %}
+                {{ comment_form.as_p }}
+                <button type="submit">Submit Comment</button>
+            </form>
+        </div>
+        {% else %}
+        <div class="comment-section">
+            <h3>Login to Comment</h3>
+            <a href="{% url 'login' %}">Login</a>
+        </div>
+        {% endif %}
+        
+        <h3>Comments</h3>
+        <div class="comments-box" id="comment">
+            <ul class="comments-list">
+                {% for comment in comments %}
+                <li>
+                    <a href="{% url 'details-profile' comment.user.username %}">@{{ comment.user.username }}</a>: {{ comment.comment }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
     <!-- Extended model for the reviews LATER -->
 {% endblock %}

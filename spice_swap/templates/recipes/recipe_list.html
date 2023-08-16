@@ -2,18 +2,20 @@
 
 {% block content %}
 <!-- Fix Soon -->
-  <h2>Recipe List</h2>
-  <ul class="recipe-list">
+  <h2 class="small-headers"><a href="">All recipes</a></h2>
+  <section class="highest-rated-box">
+    <!-- Cards showing the newest dishes -->
     {% for recipe in recipes %}
-      <li>
-        <h3><a href="{% url 'recipe-detail' recipe.pk %}">{{ recipe.title }}</a></h3>
-        <p>{{ recipe.description }}</p>
-        <p><strong>Tags:</strong>
-          {% for tag in recipe.tags.all %}
-            <span class="tag">{{ tag.name }}</span>
-          {% endfor %}
+    <div class="dish-card">
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        <h3>{{ recipe.title }}</h3>
+        <p>Tags:
+            {% for tag in recipe.tags.all %}
+                 {{ tag.name }}
+            {% endfor %}
         </p>
-      </li>
+        <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
+    </div>
     {% endfor %}
-  </ul>
+</section>
 {% endblock %}
