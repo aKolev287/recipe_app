@@ -3,7 +3,7 @@
     <div class="container">
         <div class="profile-edit">
             <h1><strong>E</strong>dit <strong>P</strong>rofile</h1>
-            <form method="post" action="{% url 'edit-profile' %}">
+            <form method="post" action="{% url 'details-profile' user.username %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value="Submit">

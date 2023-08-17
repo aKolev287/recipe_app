@@ -144,3 +144,45 @@ hr {
     text-decoration: underline;
     color: #ff8431;
 }
+
+.profile-picture-form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    border: #ccc 1px solid;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture-form p {
+    margin-bottom: 15px;
+}
+
+.profile-picture-form label {
+    font-weight: bold;
+}
+
+.profile-picture-form a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.profile-picture-form a:hover {
+    text-decoration: underline;
+}
+
+.profile-picture-form input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.profile-picture-form input[type="file"] {
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.container a{
+    margin-top: 20px;
+}

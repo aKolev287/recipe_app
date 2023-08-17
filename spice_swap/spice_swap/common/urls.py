@@ -1,12 +1,18 @@
 from django.urls import path
 
-from .views import index
+from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', views.index, name='index'),
+    path('breakfast/', views.breakfast_recipes, name='breakfast'),
+    path('lunch/', views.lunch_recipes, name='lunch'),
+    path('dinner/', views.dinner_recipes, name='dinner'),
+    path('snacks/', views.snacks_recipes, name='snacks'),
+    path('main_dish/', views.main_dish_recipes, name='main_dish'),
+    path('desserts/', views.desserts, name='desserts'),
 ]
 
 if settings.DEBUG:

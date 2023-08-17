@@ -19,12 +19,12 @@
                 <ul>
                     <li><a href="{% url 'index' %}">Home</a></li>
                     <li><a href="{% url 'recipe-list' %}">All Recipes</a></li>
-                    <li><a href="{% url 'index' %}">Breakfast</a></li>
-                    <li><a href="{% url 'index' %}">Lunch</a></li>
-                    <li><a href="{% url 'index' %}">Dinner</a></li>
-                    <li><a href="{% url 'index' %}">Snacks</a></li>
-                    <li><a href="{% url 'index' %}">Main Dish</a></li>
-                    <li><a href="{% url 'index' %}">Desserts</a></li>
+                    <li><a href="{% url 'breakfast' %}">Breakfast</a></li>
+                    <li><a href="{% url 'lunch' %}">Lunch</a></li>
+                    <li><a href="{% url 'dinner' %}">Dinner</a></li>
+                    <li><a href="{% url 'snacks' %}">Snacks</a></li>
+                    <li><a href="{% url 'main_dish' %}">Main Dish</a></li>
+                    <li><a href="{% url 'desserts' %}">Desserts</a></li>
                     {% if not request.user.is_authenticated %}
                     <li><a href="{% url 'login' %}">Login</a></li>
                     {% else %}

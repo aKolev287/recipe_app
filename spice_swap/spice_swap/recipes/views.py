@@ -63,3 +63,28 @@ def like_recipe(request, recipe_id):
     if like:
         like.delete() 
     return redirect('recipe-detail', recipe_id=recipe_id)
+
+from django.shortcuts import get_object_or_404, redirect
+
+@login_required
+def delete_recipe(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id, user=request.user)
+    if request.method == 'POST':
+        recipe.delete()
+        return redirect('index')  
+    context = {'recipe': recipe}
+    return render(request, 'recipes/recipe_delete.html',context )
+
+def edit_recipe(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id, user=request.user)
+
+    if request.method == 'POST':
+        form = RecipeForm(request.POST, instance=recipe)
+        if form.is_valid():
+            form.save()
+            return redirect('recipe-detail', recipe_id=recipe_id)
+    else:
+        form = RecipeForm(instance=recipe)
+
+    context = {'form': form, 'recipe': recipe}
+    return render(request, 'recipes/edit_recipe.html', context)

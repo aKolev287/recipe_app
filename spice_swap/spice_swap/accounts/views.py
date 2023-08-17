@@ -1,4 +1,3 @@
-# acc/views.py 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate, get_user_model
 from django.urls import reverse_lazy # for easier navigation

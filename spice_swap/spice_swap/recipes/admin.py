@@ -1,11 +1,27 @@
 from django.contrib import admin
 
-from .models import Recipe, Tag, Comment, Like
+from .models import Recipe, Tag, Comment
 
-admin.site.register(Recipe)
+from django.contrib import admin
+from .models import Recipe, Tag, Comment
 
-admin.site.register(Tag)
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'date')
+    list_filter = ('tags', 'date')
+    search_fields = ('title', 'user__username')
+    ordering = ('-date',)
+    
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    
 
-admin.site.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('user', 'recipe', 'created_at')
+    list_filter = ('recipe', 'created_at')
+    search_fields = ('user__username', 'recipe__title')
+    
 
-admin.site.register(Like)
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Tag, TagAdmin)
+admin.site.register(Comment, CommentAdmin)

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 class="small-headers"><a href="">Desserts</a></h2>
+<section class="highest-rated-box">
+    <!-- Cards showing the newest dishes -->
+    {% for recipe in recipes %}
+    <div class="dish-card">
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+        <h3>{{ recipe.title }}</h3>
+        <p>Tags:
+            {% for tag in recipe.tags.all %}
+                 {{ tag.name }}
+            {% endfor %}
+        </p>
+        <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
+    </div>
+    {% endfor %}
+</section>
+
+{% endblock %}

@@ -4,7 +4,7 @@ function main(){
   
   document.addEventListener("scroll", () => {
     const currentScroll = document.documentElement.scrollTop;
-    if (currentScroll > 120) {
+    if (currentScroll > 150) {
       header.classList.add(toggleClass);
     } else {
       header.classList.remove(toggleClass);

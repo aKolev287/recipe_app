@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
 {% if request.user.is_authenticated %}
 <div class="profile-page-style">
     <div class="profile-header">
-        <img class="profile-image" src="https://i.pinimg.com/1200x/28/95/9c/28959c030ba3d23d564a0eee0206bb5c.jpg">
+        <img class="profile-image" src="{% static 'images/default-pfp.jpg' %}">
         <div class="profile-info">
             
             <h2 class="profile-title">{{ user.first_name }} {{ user.last_name }}</h2>
@@ -28,8 +29,8 @@
             <li class="recipe-item">
                 <p><a class="recipe-link" href="{% url 'recipe-detail' recipe.pk %}">{{ recipe.title }}</a> - posted on: {{ recipe.date|date:"d.m.Y" }}
                 {% if user == request.user %}
-                    <a href="#" class="profile-link">Edit</a>
-                    <a href="#" class="profile-link">Delete</a>
+                    <a href="{% url 'edit-recipe' recipe.pk %}" class="profile-link">Edit</a>
+                    <a href="{% url 'delete-recipe' recipe.pk %}" class="profile-link">Delete</a>
                 {% endif %}
                 </p>  
             </li>

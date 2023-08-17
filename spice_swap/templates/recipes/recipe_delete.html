@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="profile-edit">
+            <h1><strong>D</strong>elete <strong>R</strong>ecipe</h1>
+            <h3>Are you sure you want to premanetly delete "{{ recipe.title }}"</h3>
+            <form method="post">
+                {% csrf_token %}
+                <button class="register-button" type="submit">Delete</button>
+                <a class="register-button" href="{% url 'recipe-detail' recipe.pk %}">Cancel</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}

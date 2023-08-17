@@ -2,24 +2,44 @@
 {% block content %}
     <div class="recipe-details">
         <h1>{{ recipe.title }}</h1>
-        <p><a href="#" id="reviewsPage">Reviews: </a></p> <!-- LATER NOT READY -->
+        <h2>Description:</h2> <!-- LATER NOT READY -->
         <p>{{ recipe.description }}</p>
         <p>Recipe by <a href="{% url 'details-profile' recipe.user.username %}">@{{ recipe.user.username }}</a> | Uploaded on: {{ recipe.date|date:"d.m.Y" }}</p>
-        {% if request.user.is_authenticated %}
-        <form method="post" action="{% url 'like-recipe' recipe.pk %}">
-            {% csrf_token %}
-            <button type="submit" class="like-button">
-                {% if user_has_liked_recipe %}
-                    Unlike
+        <div class="form-container">
+            {% if request.user.is_authenticated %}
+                <div class="like-button-container">
+                    <form method="post" action="{% url 'like-recipe' recipe.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="like-button">
+                            <span>
+                                {% if user_has_liked_recipe %}
+                                    Unlike
+                                {% else %}
+                                    Like
+                                {% endif %}
+                            </span>
+                            <span class="like-count">{{ like_count }}</span>
+                        </button>
+                    </form>
+                </div>
                 {% else %}
-                    Like
-                {% endif %}
-            </button>
-        </form>
-    {% endif %}
-    
-        
-        <p>Likes: {{ like_count }}</p>
+                <div class="like-button-container">
+                    <form method="post" action="{% url 'like-recipe' recipe.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" class="like-button" disabled>
+                            <span>
+                                {% if user_has_liked_recipe %}
+                                    Unlike
+                                {% else %}
+                                    Like
+                                {% endif %}
+                            </span>
+                            <span class="like-count">{{ like_count }}</span>
+                        </button>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
         <hr>
         <div class="recipe-image">
             <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
@@ -27,10 +47,10 @@
         
 
         <div class="recipe-ingredients">
-            <h2>Ingredients</h2>
+            <h2>Ingredients:</h2>
             <p>{{ recipe.ingredients|linebreaksbr }}</p>
-
-            <h2>Instructions</h2>
+            <hr>
+            <h2>Instructions:</h2>
             <p>{{ recipe.instructions|linebreaksbr }}</p>
         </div>
 
@@ -46,8 +66,8 @@
         </div>
         {% else %}
         <div class="comment-section">
-            <h3>Login to Comment</h3>
-            <a href="{% url 'login' %}">Login</a>
+            <h3>Add a Comment</h3>
+            <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a> to comment on this recipe</p>
         </div>
         {% endif %}
         

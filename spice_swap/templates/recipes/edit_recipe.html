@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="recipe-create-box">
+    <h2>Edit Recipe</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="register-button" type="submit">Save Changes</button>
+        <a class="register-button" href="{% url 'recipe-detail' recipe.pk %}">Back to Recipe</a>
+    </form>
+    
+</div>
+{% endblock %}

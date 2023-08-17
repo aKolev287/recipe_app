@@ -46,10 +46,10 @@ INSTALLED_APPS = [
     'spice_swap.common',
     'spice_swap.accounts',
     'spice_swap.recipes',
-    'spice_swap.rating'
 
 
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
