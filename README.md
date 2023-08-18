@@ -17,4 +17,5 @@ Built as a project for the SoftUni Web Framework module - project defense.
 - Image Handling: Django's Pillow package
 
 ![image](https://github.com/aKolev287/recipe_app/assets/108127254/cf14bee3-1b30-4cde-9958-1e08bc2d0e3c)
+![image](https://github.com/aKolev287/recipe_app/assets/108127254/7b1f8649-1d8b-4a85-a4c8-d05a4638d548)
 ![image](https://github.com/aKolev287/recipe_app/assets/108127254/bb49c5c2-3a98-454a-8db8-2f23265cf47f)
