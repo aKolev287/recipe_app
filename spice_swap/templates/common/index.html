@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2 class="small-headers"><a href="">Highest rating →</a></h2>
-<section class="highest-rated-box">
+<section class="hero-section main-image">
+    <h1>Welcome to SpiceSwap</h1>
+</section>
+<h2 class="small-headers"><a href="#">Highest rating</a></h2>
+<section id="highest-rated" class="highest-rated-box">
     
     <!-- Cards showing the dishes with the highest rating -->
     {% for recipe in highest_rated_recipes %}
@@ -18,8 +21,8 @@
     </div>
     {% endfor %}
 </section>
-<h2 class="small-headers"><a href="">Newest →</a></h2>
-<section class="highest-rated-box">
+<h2 class="small-headers">Newest</h2>
+<section id="newest" class="highest-rated-box">
     <!-- Cards showing the newest dishes -->
     {% for recipe in newest_recipes %}
     <div class="dish-card">

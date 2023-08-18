@@ -14,7 +14,7 @@ body {
     background-color: #f5f5f5;
 }
 h1{
-    margin: 10px !important;
+    margin-left: 10px !important;
     font-family: 'Kablammo', cursive;
     color: #ff6600;
 }
@@ -59,16 +59,52 @@ strong{
     color: #ff6600;
 }
 
-.sticky {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    transition: top 0.3s ease, opacity 0.3s ease; /* Add any other properties you want to transition */
-    opacity: 0.95;
-}
   
 /* end nav */
+/* Hero styles */
+.main-image {
+    background-image: url('/static/images/front-page-dish.jpg');
+}
+.breakfast-image {
+    background-image: url('/static/images/pancakes.jpg');
+}
+.lunch-image {
+    background-image: url('/static/images/lunch.jpg');
+}
+.dinner-image {
+    background-image: url('/static/images/dinner.jpg');
+}
+.snack-image {
+    background-image: url('/static/images/snack.jpg');
+}
 
+.main-dish-image{
+    background-image: url('/static/images/main-dish.jpg');
+}
+.dessert-image{
+    background-image: url('/static/images/dessert.jpg');
+}
+
+.hero-section {
+    position: relative;
+    height: 750px; /* Adjust the height as needed */
+    background-blend-mode: color;
+    background-color: #00000062;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+
+/* Styling for the welcome message */
+.hero-section h1 {
+    font-size: 8em;
+    padding-top: 150px;
+    font-family: 'Italianno', cursive;
+    color: #f5f5f5;
+}
 /* main and cards */
 .small-headers{
     margin: 20px !important;
@@ -186,3 +222,4 @@ footer button:hover {
 }
 /* end footer */
 
+/* Different hero effects for different pages */

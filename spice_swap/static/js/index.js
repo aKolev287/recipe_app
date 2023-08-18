@@ -1,18 +1,3 @@
-function main(){
-  const header = document.querySelector(".nav-container");
-  const toggleClass = "sticky";
-  
-  document.addEventListener("scroll", () => {
-    const currentScroll = document.documentElement.scrollTop;
-    if (currentScroll > 150) {
-      header.classList.add(toggleClass);
-    } else {
-      header.classList.remove(toggleClass);
-    }
-  });
-}
-main();
-
 function loginPassword(){
   let login_password = document.querySelectorAll("input#id_password")
   if (login_password[0].type === "password") {
@@ -37,3 +22,17 @@ function registerPassword(){
   }
 }
 
+
+document.querySelector('.small-headers a').addEventListener('click', function (e) {
+  e.preventDefault(); // Prevent default link behavior
+  
+  // Get the target section's position
+  const targetSection = document.querySelector('#highest-rated');
+  const targetPosition = targetSection.offsetTop;
+  
+  // Scroll smoothly to the target position
+  window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+  });
+});
