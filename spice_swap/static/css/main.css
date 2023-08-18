@@ -190,6 +190,17 @@ footer h3 {
 footer p {
     font-size: 14px;
     margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #ff6600;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
 
 footer form {
@@ -222,4 +233,37 @@ footer button:hover {
 }
 /* end footer */
 
-/* Different hero effects for different pages */
+.thank-you {
+    text-align: center;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 55vh;
+}
+
+.thank-you h2 {
+    color: #ff8431;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.thank-you p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    background-color: #ff8431;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #d1651c;
+}

@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from django.urls import reverse_lazy
 from django.contrib.auth import get_user_model
+from .config import email, password
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # CORS_ALLOWED_ORIGINS = []
-# CSRF_TRUSTED_ORIGINS = []
+# CSRF_TRUSTED_ORIGINS = ['https://1af8-78-154-13-174.ngrok-free.app']
 
 # Application definition
 
@@ -87,8 +88,12 @@ WSGI_APPLICATION = 'spice_swap.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'kolev-pg',
+        'USER': 'kolev-pg',
+        'PASSWORD': 'password',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -142,3 +147,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = reverse_lazy('custom-login-redirect')
 LOGOUT_REDIRECT_URL = reverse_lazy('login')
 LOGIN_URL = reverse_lazy('login')
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = email
+EMAIL_HOST_PASSWORD = password

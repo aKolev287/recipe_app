@@ -39,13 +39,21 @@
     </main>
     <footer>
         <h3><strong>S</strong>pice<strong>S</strong>wap</h3>
-        <!--IF ON TIME CAN IMPLEMENT A REST EMAIL LATTER-->
         <p>Subsribe for the news latter</p>
-        <form action="">
-            <input type="email" placeholder="Enter your email">
-            <button>Subscribe</button>
+        {% if request.user.is_authenticated %}
+        <form method="post" action="{% url 'subscribe' %}">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
         </form>
-
+        <p>We would appreciate if you also send us some feedback</p>
+        <p><a href="{% url 'feedback-page' %}">Send feedback</a></p>
+        {% else %}
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <button type="submit">Subscribe</button>
+        </form>
+        {% endif %}
     </footer>
     <script src="{% static 'js/index.js' %}"></script>
 </body>

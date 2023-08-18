@@ -9,7 +9,8 @@ from django.views import generic as views
 from django.contrib.auth import views as auth_views
 from django.contrib.auth import forms as auth_forms
 from django.views.decorators.csrf import csrf_protect
-from spice_swap.recipes.models import Recipe
+from spice_swap.recipes.models import Recipe, Save
+from .forms import CustomUserCreationForm
 
 # K4a9a556QEA
 # The user Model
@@ -18,7 +19,7 @@ UserModel = get_user_model()
 # Register a user
 class RegisterUserView(views.CreateView):
     template_name = 'accounts/profile-create.html'
-    form_class = auth_forms.UserCreationForm
+    form_class = CustomUserCreationForm
     success_url = reverse_lazy('custom-login-redirect')
 
     def form_valid(self, form):
@@ -64,9 +65,11 @@ def profile_delete(request):
 def profile_details(request, username):
     user = get_object_or_404(UserModel, username=username)
     recipes = Recipe.objects.filter(user=user)  # Get user's recipes
+    saved_recipes = Save.objects.filter(user=user).select_related('recipe')
     context = {
         'user': user,
-        'recipes': recipes
+        'recipes': recipes,
+        'saved_recipes': saved_recipes
     }
     return render(request, 'accounts/profile-details.html', context)
 

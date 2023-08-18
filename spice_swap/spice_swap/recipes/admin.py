@@ -1,9 +1,5 @@
 from django.contrib import admin
-
-from .models import Recipe, Tag, Comment
-
-from django.contrib import admin
-from .models import Recipe, Tag, Comment
+from .models import Recipe, Tag, Comment, Save
 
 class RecipeAdmin(admin.ModelAdmin):
     list_display = ('title', 'user', 'date')
@@ -20,8 +16,10 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('user', 'recipe', 'created_at')
     list_filter = ('recipe', 'created_at')
     search_fields = ('user__username', 'recipe__title')
+
     
 
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Save)

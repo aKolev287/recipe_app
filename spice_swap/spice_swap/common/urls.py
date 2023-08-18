@@ -13,6 +13,8 @@ urlpatterns = [
     path('snacks/', views.snacks_recipes, name='snacks'),
     path('main_dish/', views.main_dish_recipes, name='main_dish'),
     path('desserts/', views.desserts, name='desserts'),
+    path('feedback/', views.feedback_page, name='feedback-page'),
+    path('subscribe/', views.subscribe, name='subscribe'),
 ]
 
 if settings.DEBUG:

@@ -10,9 +10,7 @@
             <h2 class="profile-title">{{ user.first_name }} {{ user.last_name }}</h2>
             <p class="profile-bio">@{{ user.username }}</p>
             <p class="profile-bio">Joined: {{ user.date_joined|date:"d.m.Y" }}</p>
-            {% if user != request.user %}
-            <a class="profile-link" href="#">Follow</a>
-            {% else %}
+            {% if user == request.user %}
             <!-- else if the user is the profile owner -->
             <a class="profile-link" href="{% url 'create-recipe' %}">Add Recipe</a>
             <a class="profile-link" href="{% url 'edit-profile' %}">Edit profile</a>
@@ -41,6 +39,22 @@
             </li>
         {% endif %}
     </ul>
+    <h3 class="profile-action">Saved recipes</h3>
+    <ul class="recipe-list">
+        {% if saved_recipes %}
+            {% for saved_recipe in saved_recipes %}
+                <li class="recipe-item">
+                   <p><a class="recipe-link" href="{% url 'recipe-detail' saved_recipe.recipe.pk %}">🔖 {{ saved_recipe.recipe.title }}</a></p> 
+                </li>
+            {% endfor %}
+        {% else %}
+            <li class="recipe-item">
+                No saved recipes yet
+            </li>
+        {% endif %}
+    </ul>
+    
+
     
     
 </div>

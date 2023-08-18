@@ -14,7 +14,7 @@
         <h3>{{ recipe.title }}</h3>
         <p>Tags:
             {% for tag in recipe.tags.all %}
-                 {{ tag.name }}
+                 #{{ tag.name }}
             {% endfor %}
         </p>
         <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
@@ -30,7 +30,7 @@
         <h3>{{ recipe.title }}</h3>
         <p>Tags:
             {% for tag in recipe.tags.all %}
-                 {{ tag.name }}
+                 #{{ tag.name }}
             {% endfor %}
         </p>
         <a href="{% url 'recipe-detail' recipe.pk %}">Details</a>
